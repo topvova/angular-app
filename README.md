@@ -2,6 +2,8 @@
 
 Build the :orange_book: Recipe Book :fork_and_knife: with :triangular_flag_on_post: Angular 4.
 
+Build the :orange_book: Recipe Book with :triangular_flag_on_post: Angular 4.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
