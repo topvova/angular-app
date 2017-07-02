@@ -12,7 +12,7 @@ import {Component, Input} from '@angular/core';
 export class ServerComponent {
     serverId = 1;
     serverStatus = 'offline';
-    @Input() serverItem = [];
+    @Input('serverItem') server = [];
 
     constructor() {
         this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
