@@ -35,4 +35,9 @@ export class ServersComponent implements OnInit {
       this.serverName = (<HTMLInputElement>event.target).value;
   }
 
+  onRemoveServer(id: number) {
+      const position = id;
+      this.servers.splice(position, 1);
+  }
+
 }
