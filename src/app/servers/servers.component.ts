@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   /*selector: '[app-servers]',
@@ -14,6 +14,7 @@ export class ServersComponent implements OnInit {
   serverName = 'Test server';
   serverCreated = false;
   servers = ['Test server', 'Test server 2'];
+  @ViewChild('serverNameInput') serverNameInput: ElementRef;
 
   constructor() {
       setTimeout(() => {
@@ -25,10 +26,12 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(srvNameInput: HTMLInputElement) {
+      // console.log(this.serverNameInput);
       // console.log(srvNameInput.value);
       this.serverCreated = true;
       // this.servers.push(this.serverName);
-      this.servers.push(srvNameInput.value);
+      // this.servers.push(srvNameInput.value);
+      this.servers.push(this.serverNameInput.nativeElement.value);
       this.serverCreationStatus = 'Server has just created! Its name is ' + this.serverName;
   }
 
