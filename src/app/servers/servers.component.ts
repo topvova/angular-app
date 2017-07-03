@@ -24,9 +24,11 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreateServer() {
+  onCreateServer(srvNameInput: HTMLInputElement) {
+      // console.log(srvNameInput.value);
       this.serverCreated = true;
-      this.servers.push(this.serverName);
+      // this.servers.push(this.serverName);
+      this.servers.push(srvNameInput.value);
       this.serverCreationStatus = 'Server has just created! Its name is ' + this.serverName;
   }
 
