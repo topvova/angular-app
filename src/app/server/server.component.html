@@ -1,4 +1,5 @@
 <p [ngStyle]="{backgroundColor: getColor()}"
    [ngClass]="{online: serverStatus === 'online',
                offline: serverStatus === 'offline'}"
+   #paragraph
 ><ng-content></ng-content> with ID {{ getServerId() }} is {{ getServerStatus() }} now!</p>

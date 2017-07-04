@@ -9,7 +9,8 @@ import {
     OnChanges,
     OnInit,
     SimpleChanges,
-    OnDestroy
+    OnDestroy,
+    ViewChild, ElementRef
 } from '@angular/core';
 
 @Component({
@@ -33,6 +34,7 @@ export class ServerComponent implements
     serverId = 1;
     serverStatus = 'offline';
     @Input('serverItem') server = [];
+    @ViewChild('paragraph') srvStatus: ElementRef;
 
     constructor() {
         console.log('constructor was called!');
@@ -46,6 +48,7 @@ export class ServerComponent implements
 
     ngOnInit() {
         console.log('ngOnInit was called!');
+        console.log(this.srvStatus.nativeElement.textContent);
     }
 
     ngDoCheck() {
@@ -62,6 +65,7 @@ export class ServerComponent implements
 
     ngAfterViewInit() {
         console.log('ngAfterViewInit was called!');
+        console.log(this.srvStatus.nativeElement.textContent);
     }
 
     ngAfterViewChecked() {
