@@ -1,4 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewChecked,
+    AfterViewInit,
+    Component,
+    DoCheck,
+    Input,
+    OnChanges,
+    OnInit,
+    SimpleChanges,
+    OnDestroy
+} from '@angular/core';
 
 @Component({
     selector: 'app-server',
@@ -9,13 +21,55 @@ import {Component, Input} from '@angular/core';
     `]
 })
 
-export class ServerComponent {
+export class ServerComponent implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy {
     serverId = 1;
     serverStatus = 'offline';
     @Input('serverItem') server = [];
 
     constructor() {
+        console.log('constructor was called!');
         this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        console.log('ngOnChanges was called!');
+        console.log(changes);
+    }
+
+    ngOnInit() {
+        console.log('ngOnInit was called!');
+    }
+
+    ngDoCheck() {
+        console.log('ngDoCheck was called!');
+    }
+
+    ngAfterContentInit() {
+        console.log('ngAfterContentInit was called!');
+    }
+
+    ngAfterContentChecked() {
+        console.log('ngAfterContentChecked was called!');
+    }
+
+    ngAfterViewInit() {
+        console.log('ngAfterViewInit was called!');
+    }
+
+    ngAfterViewChecked() {
+        console.log('ngAfterViewChecked was called!');
+    }
+
+    ngOnDestroy() {
+        console.log('ngOnDestroy was called!');
     }
 
     getServerStatus(): string {

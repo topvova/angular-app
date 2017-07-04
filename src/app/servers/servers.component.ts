@@ -45,4 +45,8 @@ export class ServersComponent implements OnInit {
       this.servers.splice(position, 1);
   }
 
+  onChangeFirst() {
+      this.servers[0] = 'changed';
+  }
+
 }

@@ -18,7 +18,19 @@
 <button
     class="btn btn-primary"
     [disabled]="!allowNewServer"
-    (click)="onCreateServer(serverNameInput)">Add Server</button>
+    (click)="onCreateServer(serverNameInput)">Add Server
+</button>
+<button
+    type="button"
+    class="btn btn-warning"
+    (click)="onChangeFirst()">Change First Element
+</button>
+<button
+    type="button"
+    class="btn btn-danger"
+    (click)="onRemoveServer(this)">Destroy Server
+</button>
+
 <!--<p>{{ allowNewServer }}</p>-->
 <!--<p [innerText]="allowNewServer"></p>-->
 <!--<p>{{ serverCreationStatus}}</p>-->
