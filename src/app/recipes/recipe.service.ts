@@ -1,6 +1,8 @@
 import {Recipe} from './recipe.model';
+import {EventEmitter} from '@angular/core';
 
 export class RecipeService {
+    recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
       new Recipe('Easy Fava Bean and Carrot Salad With Ricotta Recipe',
           'This quick and easy salad takes some of spring`s best produce—bright green fava beans and tender young' +
