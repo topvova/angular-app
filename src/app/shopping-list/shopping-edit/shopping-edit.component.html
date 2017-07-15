@@ -33,7 +33,12 @@
                         class="btn btn-success"
                         [disabled]="!form.valid"
                     >{{ editMode ? 'Update' : 'Add' }}</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="onDelete()"
+                        *ngIf="editMode"
+                    >Delete</button>
                     <button type="button" class="btn btn-warning" (click)="onClear()">Clear</button>
                 </div>
             </div>

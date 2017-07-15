@@ -33,4 +33,10 @@ export class ShoppingListService {
         // emit updated ingredients
         this.ingredientsChanged.next(this.ingredients.slice());
     }
+
+    deleteIngredient(index: number) {
+        this.ingredients.splice(index, 1);
+        // emit new array without deleted element
+        this.ingredientsChanged.next(this.ingredients.slice());
+    }
 }
