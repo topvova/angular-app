@@ -6,6 +6,7 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class RecipeService {
+    recipesChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
       new Recipe('Easy Fava Bean and Carrot Salad With Ricotta Recipe',
           'This quick and easy salad takes some of spring`s best produce—bright green fava beans and tender young' +
@@ -31,7 +32,6 @@ export class RecipeService {
               new Ingredient('Chorizo', 1)
           ])
     ];
-    recipesChanged = new Subject<Recipe[]>();
 
     constructor(private shopListService: ShoppingListService) {}
 
@@ -54,6 +54,11 @@ export class RecipeService {
 
     updateRecipe(index: number, newRecipe: Recipe) {
         this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice())
+    }
+
+    deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
         this.recipesChanged.next(this.recipes.slice())
     }
 }
